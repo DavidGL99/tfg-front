@@ -1,0 +1,28 @@
+<nav>
+   <img class="navbar-logo" src="../../assets/logo3.png" alt="logo" [routerLink]="'/'"/>
+
+   <div class="nav-items">
+      <div class="dropdown">
+         <button class="btn btn-light dropdown-toggle" type="button" id="categories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{category}}
+         </button>
+         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div *ngFor="let category of categories" >
+              <div class="dropdown-item" [routerLink]="'/catalogue'" [queryParams]="{category: category.id}"
+                              (click)="setCategory(category.name)" >{{category.name}}</div>
+            </div>
+
+
+
+         </div>
+      </div>
+      <input type="text" class="form-control" placeholder="Buscar" aria-label="" aria-describedby="basic-addon1" />
+   </div>
+   <div class="nav-icons">
+      <img class="navbar-icon" src="../../assets/user.png" alt="logo" />
+      <p>Mi cuenta</p>
+
+      <img class="navbar-icon" src="../../assets/carrito.png" alt="logo" />
+      <p>Carrito</p>
+   </div>
+</nav>

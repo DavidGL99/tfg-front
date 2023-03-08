@@ -1,0 +1,7 @@
+.item-frame{
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 220px;
+  margin: 15px
+}
