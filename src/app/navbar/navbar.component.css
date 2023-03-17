@@ -43,3 +43,17 @@ p{
   margin-right: 10px;
 }
 
+
+.dropdown-menu {
+  min-width: 0;
+}
+
+
+.icon-button{
+  margin-right: 30px;
+}
+
+
+.login-menu{
+  width: 110px;
+}

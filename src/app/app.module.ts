@@ -7,7 +7,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TopCategoriesComponent } from './top-categories/top-categories.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { CatalogueItemComponent } from './catalogue-item/catalogue-item.component';
-import { ProductComponent } from './product/product.component';
+import { DialogOverviewExampleDialog, ProductComponent } from './product/product.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -16,11 +22,19 @@ import { ProductComponent } from './product/product.component';
     TopCategoriesComponent,
     CatalogueComponent,
     CatalogueItemComponent,
-    ProductComponent
+    ProductComponent,
+    LoginComponent,
+    SignupComponent,
+    DialogOverviewExampleDialog,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

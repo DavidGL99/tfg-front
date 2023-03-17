@@ -1,7 +1,31 @@
 .item-frame{
   display: flex;
   flex-direction: column;
-  height: 200px;
-  width: 220px;
-  margin: 15px
+  height: 350px;
+  width: 260px;
+  margin: auto
+}
+
+#name{
+  margin-top: 25px;
+  font-size: 16px;
+  height: 125px;
+}
+
+#price{
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+#content{
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  align-self: center;
+}
+
+
+#item-buttom{
+  align-self: bottom;
 }

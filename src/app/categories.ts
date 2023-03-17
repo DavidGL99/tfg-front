@@ -3,7 +3,7 @@ export enum Categories {
   Portatiles,
   Ordenadores,
   Smartphones,
-  Televisiones,
+  Televisores,
   Electrodomesticos,
   Smartwatchs,
   Perifericos,

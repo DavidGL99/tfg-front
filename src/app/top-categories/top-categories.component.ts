@@ -13,4 +13,5 @@ export class TopCategoriesComponent {
       { name: Categories[Categories.Ordenadores], path: '../../assets/pc.PNG', index: 2 },
       { name: Categories[Categories.Consolas], path: '../../assets/consola.PNG', index: 8 },
    ];
-}
+
+  }

@@ -1,1 +1,19 @@
 <p>product works!</p>
+<div class="item-frame" [routerLink]="'/product/'">
+   <img class="navbar-logo" src="{{ url }}" alt="logo" />
+   <div id="content">
+      <p id="name">{{ name }}</p>
+      <p id="price">{{ price }}</p>
+      <button class="btn btn-primary" id="item-bottom" type="button">Añadir al carrito</button>
+   </div>
+</div>
+
+<div class="reviews">
+   <div class="review-header">
+      <h1>Reviews</h1>
+      <div class="personal-review">
+         <input type="image" id="icon" src="../../assets/review.png" (click)="openDialog()" />
+         <p>Make your review!</p>
+      </div>
+   </div>
+</div>
