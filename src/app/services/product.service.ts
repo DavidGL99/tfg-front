@@ -22,6 +22,9 @@ export class ProductService {
    }
 
    getById(id: String): Observable<any> {
-    return this.http.get(`${this.backendURL}?id=${id}`);
- }
+      return this.http.get(`${this.backendURL}?id=${id}`);
+   }
+   search(name: String): Observable<any> {
+      return this.http.get(`${this.backendURL}/search?name=${name}`);
+   }
 }

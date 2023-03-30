@@ -6,6 +6,7 @@ body {
 }
 
 .body-items{
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -20,7 +21,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 
-.rating-star>h2 , .text-review> h2{
+.rating-star>h3 , .text-review> h2{
   margin-right: 370px;
 }
 .rating-star{
@@ -52,3 +53,25 @@ label.star:before {
   display: flex;
   flex-direction: column;
 }
+
+.review-form{
+  padding: 40px;
+}
+
+.review-tittle{
+  padding-top: 15px;
+}
+
+
+
+.div-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+.div-button > button{
+  width: 200px;
+}
+
+

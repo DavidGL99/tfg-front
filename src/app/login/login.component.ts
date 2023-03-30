@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../user.service';
+import { UserService } from '../services/user.service';
 
 @Component({
    selector: 'app-login',
@@ -13,6 +13,13 @@ export class LoginComponent {
    password: String = '';
    failed: any = '';
    constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) {}
+
+
+   ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+   }
+
 
    doLogin(): void {
       this.userService.login(this.email, this.password).subscribe(

@@ -1,31 +1,42 @@
 .item-frame{
   display: flex;
   flex-direction: column;
-  height: 350px;
-  width: 260px;
-  margin: auto
+  height: 100%;
 }
 
 #name{
-  margin-top: 25px;
   font-size: 16px;
-  height: 125px;
 }
 
 #price{
   font-size: 14px;
   font-weight: bold;
-  margin-bottom: 25px;
 }
 
 #content{
-  display: flex;
-  flex-direction: column;
-  width: 260px;
-  align-self: center;
+display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 50%;
+    /* margin-top: auto; */
+    padding: 0px 20px 0px 20px;
 }
+
 
 
 #item-buttom{
   align-self: bottom;
+  margin-bottom: 40px;
+}
+
+.button-div{
+  text-align: center;
+  align-items: flex-end;
+  margin-top: auto;
+  padding-bottom: 5%;
+}
+
+.product-img{
+  height: 60%;
+  padding: 30px;
 }

@@ -7,25 +7,20 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 @Component({
    selector: 'app-catalog',
-   templateUrl: './catalogue.component.html',
-   styleUrls: ['./catalogue.component.css'],
+   templateUrl: './search.component.html',
+   styleUrls: ['./search.component.css'],
 })
-export class CatalogueComponent {
-   categories = [Categories[0], Categories[1], Categories[2], Categories[3], Categories[4], Categories[5], Categories[6], Categories[7], Categories[8]];
-   currentCategory: String = '';
+export class SearchComponent {
    products = [];
+   query:any;
    name: any = '';
    token: any = '';
    constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService, private userService: UserService) {}
 
    ngOnInit(): void {
       this.route.queryParams.subscribe((params) => {
-         this.setCategory(params['category']);
-         if (!params['category']) {
-            this.getAll();
-         } else {
-            this.getAllByCategory();
-         }
+         this.setQuery(params['name']);
+        this.search(this.query);
       });
 
       this.name = localStorage.getItem('name');
@@ -49,21 +44,12 @@ export class CatalogueComponent {
       }
    }
 
-   setCategory(category: any): void {
-      this.currentCategory = this.categories[category];
-   }
+  setQuery(name : String){
+this.query = name;
+  }
 
-   getAllByCategory(): void {
-      this.productService.getAllByCategory(this.currentCategory.toLowerCase()).subscribe((res) => {
-         res.forEach((a: any) => {
-            a.price += '€';
-         });
-         this.products = res;
-      });
-   }
-
-   getAll(): void {
-      this.productService.getAll().subscribe((res) => {
+   search(name : String): void {
+      this.productService.search(name).subscribe((res) => {
          res.forEach((a: any) => {
             a.price += '€';
          });

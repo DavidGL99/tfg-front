@@ -21,4 +21,9 @@ export class UserService {
       return this.http.post(`${this.authURL}/create`, { email: email, password: password, name: name, lastnames: lastnames });
    }
 
+   validate(token: String): any {
+    return this.http.post(`${this.authURL}/validate`, { token: token });
+
+ }
+
 }

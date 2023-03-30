@@ -1,5 +1,5 @@
 export enum Categories {
-  Componentes,
+  eBooks,
   Portatiles,
   Ordenadores,
   Smartphones,

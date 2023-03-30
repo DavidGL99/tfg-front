@@ -6,7 +6,7 @@
          <button class="btn btn-light dropdown-toggle" type="button" id="categories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ category }}
          </button>
-         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+         <div class="dropdown-menu category-menu" aria-labelledby="dropdownMenuButton">
             <div *ngFor="let category of categories">
                <div class="dropdown-item" [routerLink]="'/catalogue'" [queryParams]="{ category: category.id }" (click)="setCategory(category.name)">
                   {{ category.name }}
@@ -14,7 +14,7 @@
             </div>
          </div>
       </div>
-      <input type="text" class="form-control" placeholder="Buscar" aria-label="" aria-describedby="basic-addon1" />
+      <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="search" aria-label="" aria-describedby="basic-addon1" (input)="doSearch()"/>
    </div>
 
    <div class="nav-icons">
@@ -47,6 +47,7 @@
                <ng-container *ngIf="name; then loggedIn; else loggedOut"> </ng-container>
 
                <ng-template #loggedIn>
+                  <div class="dropdown-item" [routerLink]="'/bought'">Mis compras</div>
                   <div class="dropdown-item" (click)="logout()">Log out</div>
                </ng-template>
                <ng-template #loggedOut>
@@ -71,7 +72,7 @@
                Carrito
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-               <div class="dropdown-item" [routerLink]="'/carrito'">Carrito</div>
+               <div class="dropdown-item" (click)="goToCart()">Carrito</div>
             </div>
          </div>
       </div>

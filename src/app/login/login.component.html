@@ -12,6 +12,7 @@
             <label for="exampleFormControlInput1" class="form-label text-danger">Contraseña</label>
             <input type="password" class="form-control border border-danger" id="passwordForm" placeholder="*****" [(ngModel)]="password" />
          </div>
+         <p class="redirect" [routerLink]="'/signup'"> ¿No tienes una cuenta ?</p>
          <button class="btn btn-primary login-button" type="button" id="login" (click)="doLogin()">Aceptar</button>
       </div>
    </div>
@@ -28,6 +29,8 @@
             <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
             <input type="password" class="form-control border" id="passwordForm" placeholder="*****" [(ngModel)]="password" />
          </div>
+         <p class="redirect" [routerLink]="'/signup'"> ¿No tienes una cuenta ?</p>
+
          <button class="btn btn-primary login-button" type="button" id="login" (click)="doLogin()">Aceptar</button>
       </div>
    </div>
