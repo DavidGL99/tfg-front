@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { GATEWAY_URL } from '../env';
 import { Review } from '../interfaces/review';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class ReviewService {
 
   constructor(private http: HttpClient) {}
 
-   private backendURL = 'http://localhost:8085/review';
+   private backendURL = GATEWAY_URL + '/review';
 
    addReview(review : Review, auth: String):  Observable<any> {
      console.log(review)

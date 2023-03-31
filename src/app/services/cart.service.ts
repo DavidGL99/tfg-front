@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { GATEWAY_URL } from '../env';
 import { OrderService } from './order.service';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { OrderService } from './order.service';
 export class CartService {
    constructor(private http: HttpClient, private orderService: OrderService) {}
 
-   private backendURL = 'http://localhost:8082/cart';
+   private backendURL = GATEWAY_URL + '/cart';
 
    addToCart(userId: String, productId: Number, cantidad: Number, auth: String): Observable<any> {
       return this.http.post(

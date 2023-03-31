@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { GATEWAY_URL } from '../env';
 
 @Injectable({
    providedIn: 'root',
@@ -11,7 +12,7 @@ export class ProductService {
    };
    constructor(private http: HttpClient) {}
 
-   private backendURL = 'http://localhost:8081/product';
+   private backendURL = GATEWAY_URL + '/product';
 
    getAllByCategory(category: String): Observable<any> {
       return this.http.get(`${this.backendURL}/category/${category}`);
