@@ -7,5 +7,6 @@ export enum Categories {
   Electrodomesticos,
   Smartwatchs,
   Perifericos,
-  Consolas
+  Consolas,
+
 }
