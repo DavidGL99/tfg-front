@@ -1,25 +1,27 @@
-# Stage 0, for downloading project’s npm dependencies, building and compiling the app.
-FROM node:14.13 as node
-
-# set working directory
-RUN mkdir /usr/src/app
-WORKDIR /usr/src/app
-
-# add .bin to $PATH
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
-
-# install package.json (o sea las dependencies)
-COPY package.json /usr/src/app/package.json
+### STAGE 1:BUILD ###
+# Defining a node image to be used as giving it an alias of "build"
+# Which version of Node image to use depends on project dependencies
+# This is needed to build and compile our code
+# while generating the docker image
+FROM --platform=linux/amd64 node:16 AS build
+# Create a Virtual directory inside the docker image
+WORKDIR /dist/src/app
+# Copy files to virtual directory
+# COPY package.json package-lock.json ./
+# Run command in Virtual directory
+RUN npm cache clean --force
+# Copy files from local machine to virtual directory in docker image
+COPY . .
 RUN npm install
-RUN npm install -g @angular/cli@10.0.3 
+RUN npm run build --prod
 
-# add app
-COPY . /usr/src/app
 
-# start app
-CMD npm build-prod
-
-# Stage 1, for copying the compiled app from the previous step and making it ready for production with Nginx
-FROM nginx:alpine
-COPY --from=node /usr/src/app/dist/bloomingfrontend /usr/share/nginx/html/
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+### STAGE 2:RUN ###
+# Defining nginx image to be used
+FROM --platform=linux/amd64 nginx:latest AS ngi
+# Copying compiled code and nginx config to different folder
+# NOTE: This path may change according to your project's output folder
+COPY --from=build /dist/src/app/dist/tasty /usr/share/nginx/html
+# Exposing a port, here it means that inside the container
+# the app will be using Port 80 while running
+EXPOSE 80
