@@ -57,8 +57,11 @@ export class ProductComponent {
          this.email = localStorage.getItem('email');
          this.jwt = localStorage.getItem('jwt');
 
-         this.cartService.addToCart(this.email, Number(this.id), 1, this.jwt).subscribe();
-         this.router.navigateByUrl(`/cart`);
+         this.cartService.addToCart(this.email, Number(this.id), 1, this.jwt).subscribe(
+          (res) => {
+            this.router.navigateByUrl(`/cart`);
+          }
+         );
       } else {
          this.router.navigateByUrl(`/login`);
       }
